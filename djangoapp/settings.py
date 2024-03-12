@@ -57,6 +57,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+WHITENOISE_USE_FINDERS = True
+
 ROOT_URLCONF = 'djangoapp.urls'
 
 TEMPLATES = [
@@ -90,9 +92,9 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': os.getenv('DB_NAME', 'your_local_db_name'),
-            'USER': os.getenv('DB_USER', 'your_local_db_user'),
-            'PASSWORD': os.getenv('DB_PASSWORD', 'your_local_db_password'),
+            'NAME': os.getenv('DB_NAME'),
+            'USER': os.getenv('DB_USER'),
+            'PASSWORD': os.getenv('DB_PASSWORD'),
             'HOST': 'localhost',
             'PORT': '5432',
         }
