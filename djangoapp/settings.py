@@ -30,7 +30,7 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [os.getenv('WEBSITE_NAME')]
+ALLOWED_HOSTS = ['ms-demo.michellef.dev']
 
 
 # Application definition
