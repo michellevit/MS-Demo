@@ -52,8 +52,8 @@ if exist "%basePath%\static\build\" (
 xcopy /E /I "%basePath%\reactapp\build\" "%basePath%\static\build\"
 
 
-
-"%basePath%\MS-Demo\venv\Scripts\python.exe" manage.py collectstatic --noinput
+cd %basePath%
+"%basePath%\venv\Scripts\python.exe" manage.py collectstatic --noinput
 if %errorlevel% neq 0 (
     echo ERROR: Django collectstatic failed with error code %errorlevel%.
     exit /b %errorlevel%
