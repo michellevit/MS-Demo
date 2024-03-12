@@ -79,7 +79,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'djangoapp.wsgi.application'
 
-REACT_APP_DIR = os.path.join(BASE_DIR, 'static', 'build')
+REACT_APP_DIR = os.path.join(BASE_DIR, 'static', 'build', 'static')
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
