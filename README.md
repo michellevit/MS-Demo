@@ -28,6 +28,8 @@ MS-DEMO
 | | | | - clear_db_data.py
 | | | | - get_data.py
 | | - migrations
+| | - templates
+| | | - index.html 
 | | - __init__.py
 | | - admin.py
 | | - apps.py
