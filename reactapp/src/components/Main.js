@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
+import Plotly from "plotly.js-basic-dist";
+import createPlotlyComponent from "react-plotly.js/factory";
+
+const Plot = createPlotlyComponent(Plotly);
 
 function Main() {
   const [miningData, setMiningData] = useState([]);
@@ -17,16 +21,27 @@ function Main() {
     fetchData();
   }, []);
 
+  const heatmapData = {
+    x: miningData.map(data => data.location_latitude),
+    y: miningData.map(data => data.location_longitude),
+    z: miningData.map(data => data.cu_grade),
+    type: "heatmap",
+    colorscale: "Hot"
+  };
+
   return (
     <div className="main">
       <h1>Mining Data</h1>
-      <ul>
-        {miningData.map(data => (
-          <li key={data.id}>
-            Date: {data.date}, Time: {data.time}, Latitude: {data.location_latitude}, Longitude: {data.location_longitude}, Cu Grade: {data.cu_grade}
-          </li>
-        ))}
-      </ul>
+      <Plot
+        data={[heatmapData]}
+        layout={{
+          width: 800,
+          height: 600,
+          title: "Cu Grade Heatmap",
+          xaxis: { title: "Latitude" },
+          yaxis: { title: "Longitude" }
+        }}
+      />
     </div>
   );
 }

@@ -9,7 +9,7 @@ cd ..
 cd ..
 cd ..
 REM Set the base path to the root directory of your Django project
-SET basePath=%cd%
+set "basePath=%~dp0"
 
 REM Check if logged in to Heroku
 echo Checking Heroku login status...
@@ -23,8 +23,10 @@ if errorlevel 1 (
     )
 )
 
-cd %basePath%
+REM Navigate back to the directory containing this script
+cd /d "%basePath%"
 
+echo %basepath%
 :: REM Run Django management commands (in api/management/commands)
 echo Updating db data...
 "%basePath%\venv\Scripts\python.exe" manage.py new_bucket
