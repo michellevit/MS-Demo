@@ -12,6 +12,6 @@ def get_mining_data(request):
 
 class MiningDataListView(APIView):
     def get(self, request):
-        open_orders = MiningData.objects.all().filter(shipped=False)
-        serializer = MiningSerializer(open_orders, many=True)
+        mining_data = MiningData.objects.all()
+        serializer = MiningSerializer(mining_data, many=True)
         return Response(serializer.data)
