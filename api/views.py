@@ -1,3 +1,6 @@
-from django.shortcuts import render
+from django.http import JsonResponse
+from .models import MiningData
 
-# Create your views here.
+def get_mining_data(request):
+    mining_data = MiningData.objects.all().values() 
+    return JsonResponse(list(mining_data), safe=False)
